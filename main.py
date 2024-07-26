@@ -1,6 +1,7 @@
 from huoqu import tianyancha,icpbeian,qcc
 # from concurrent.futures import ThreadPoolExecutor
 import argparse
+import re
 
 def get_parser():
     #创建参数总容器
@@ -52,10 +53,11 @@ def main(name:str,addr="result.txt"):
         resultt=set()
         result4=result1+result2+result3  #处理结果
         for r in result4:
-            if r[0:3]=='www':
-                resultt.add(r[4:])       #去重
+            rr=r.replace('、','')
+            if rr[0:3]=='www':
+                resultt.add(rr[4:])       #去重
             else:
-                resultt.add(r)
+                resultt.add(rr)
         
         if addr:
             output(name,resultt,str(addr))   #写入文件
