@@ -168,6 +168,7 @@ class qcc(huoqu):
         company_name2=quote(self.company_name)  #url编码
         response=requests.get(url=f'https://www.qcc.com/web/search/?key={company_name2}',headers=headers, verify=False) #请求报文
         response2=response.content.decode('utf-8')
+        # print(response2)
         # f=open("test.txt","w",encoding="utf-8")
         # f.write(response2)
         html=etree.HTML(response2)
@@ -187,7 +188,7 @@ class qcc(huoqu):
             exit()
         while True:
             try:
-                num=input("请输入要查询的企业号数，可以为多个，用','分割。想退出查询请输入'ok'\n")
+                num=input("请输入要查询的企业号数，可以为多个，用','分割。想确认查询请输入'ok'\n")
                 if num=="ok":
                     break
                 num2=re.split('[,，]',num)
