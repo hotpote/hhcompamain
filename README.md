@@ -24,3 +24,11 @@ cookie值可抓包获取，也可在浏览器中f12界面的存储功能处查�
 3.python3 hhcompamain.py -h
 
 4.查看提示后选择想要的参数使用即可
+
+![image](https://github.com/user-attachments/assets/c85a6af3-1038-47df-8333-2beffa96a005)
+
+![image](https://github.com/user-attachments/assets/ff05d2f1-35ab-4b04-a58e-44ef6ff8d5ce)
+
+![image](https://github.com/user-attachments/assets/4405c932-1eec-4ffc-bd98-f4de4ec7b7a1)
+
+
