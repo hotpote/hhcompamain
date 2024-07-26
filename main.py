@@ -51,11 +51,11 @@ def main(name:str,addr="result.txt"):
 
         resultt=set()
         result4=result1+result2+result3  #处理结果
-        for i in result4:
-            if i[0]=='w':
-                resultt.add(i[4:])       #去重
+        for r in result4:
+            if r[0:3]=='www':
+                resultt.add(r[4:])       #去重
             else:
-                resultt.add(i)
+                resultt.add(r)
         
         if addr:
             output(name,resultt,str(addr))   #写入文件
