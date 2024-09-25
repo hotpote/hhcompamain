@@ -169,7 +169,7 @@ Y88b.    Y88..88P 888  888  888 888 d88P 888  888 888  888  888 888  888 888 888
                                                                 作者：火火    https://github.com/hotpote
 
                                                                 
-    使用前请先进入config.txt文件内进行cookie配置：qcccookie为企查查用户登陆后的cook值，tycookie为天眼查用户登陆后的cookie值。
+    使用前请先进入config.txt文件内进行cookie配置：qcccookie为企查查用户登陆后的cook值，tycookie为天眼查用户登陆后的cookie值，icpcookie为icp备案查询的cookie值。
         cookie值可登录账号后在浏览器中按f12查看存储功能处查到，保存格式为 键1=值1;键2=值2; 如token=dso24f9328knew;name=admin;
         
     用法：

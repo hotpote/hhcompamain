@@ -2,3 +2,5 @@
 tycookie:
 #qcccookie为企查查用户登陆后的cook值
 qcccookie:
+#icpcookie为icp备案查询cookie值
+icpcookie:

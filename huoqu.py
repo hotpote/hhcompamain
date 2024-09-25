@@ -59,14 +59,17 @@ class icpbeian(huoqu):
         self.company_name=company_name
     
     def huoqu(self) -> list:
-        # cookie=open("config.txt","r",encoding="utf-8")
-        # cookie2=cookie.readlines()
-        # for cookie3 in cookie2:
-        #     if cookie3[:6]=='cookie':
-        #         cookiee=cookie3[7:]
+        cookiee=''
+        cookie=open("config.txt","r",encoding="utf-8")
+        cookie2=cookie.readlines()
+        for cookie3 in cookie2:
+            print()
+            if cookie3[:9]=='icpcookie':
+                cookiee=cookie3[10:]
 
         headers={		#以字典形式导入
             'Host':'www.beianx.cn',
+            'Cookie':cookiee,
             'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0',
             'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
             'Accept-Language':'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
@@ -81,6 +84,7 @@ class icpbeian(huoqu):
         }
         result=[]
         company_name2=quote(self.company_name)  #url编码
+        # print(company_name2)
         response=requests.get(url=f'https://www.beianx.cn/search/{company_name2}',headers=headers, verify=False)  #请求数据
         response2=response.content.decode('utf-8')  
         # f=open("test.txt","w")
@@ -131,7 +135,8 @@ class qcc(huoqu):
         # f=open("test.txt","w",encoding="utf-8")
         # f.write(response_ye2)
         html_ye=etree.HTML(response_ye2)
-        domain=html_ye.xpath('//span[@class="inline-block"]/text()') #xpath语句获取域名
+        #(//table[@class="ntable app-ntable-expand-all"])[2]/tr/td[4]/div/div/div/div/div/text()
+        domain=html_ye.xpath('(//table[@class="ntable app-ntable-expand-all"])[2]/tr/td[4]/div/div/div/div/div/text()') #xpath语句获取域名
         # print(domain)
         print("---------------------------------------------------------------")
         print(f'"{result_name}"的资产在企查查备案的结果为:') #输出
@@ -168,7 +173,6 @@ class qcc(huoqu):
         company_name2=quote(self.company_name)  #url编码
         response=requests.get(url=f'https://www.qcc.com/web/search/?key={company_name2}',headers=headers, verify=False) #请求报文
         response2=response.content.decode('utf-8')
-        # print(response2)
         # f=open("test.txt","w",encoding="utf-8")
         # f.write(response2)
         html=etree.HTML(response2)
@@ -188,7 +192,7 @@ class qcc(huoqu):
             exit()
         while True:
             try:
-                num=input("请输入要查询的企业号数，可以为多个，用','分割。想确认查询请输入'ok'\n")
+                num=input("请输入要查询的企业号数，可以为多个，用','分割。想退出查询请输入'ok'\n")
                 if num=="ok":
                     break
                 num2=re.split('[,，]',num)
@@ -219,6 +223,11 @@ if __name__=="__main__": #本地测试1
     for name in result_name:
         t.huoqu(name,result_dizhi[i])
         i+=1
+
+
     # t=tianyancha("优酷")
     # t.huoqu()
+
+    # q=icpbeian('北京抖音信息服务有限公司')
+    # q.huoqu()
     
